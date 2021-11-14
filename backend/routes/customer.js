@@ -3,6 +3,7 @@ import customer from "../controllers/customer.js";
 
 const router = express.Router();
 
+router.post("/login",customer.login);
 router.post("/registerCustomer", customer.registerCustomer);
 router.get("/listCustomer", customer.listCustomer);
 router.put("/updateCustomer", customer.updateCustomer);
