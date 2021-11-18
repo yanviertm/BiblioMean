@@ -78,4 +78,11 @@ const deleteBook = async (req, res) => {
     : res.status(200).send("Book deleted");
 };
 
-export default { registerBook, listBook, updateBook, deleteBook };
+const findBook = async (req, res) => {
+  const bookSchema = await book.findById({_id:req.params["_id"]});
+  return !bookSchema
+    ? res.status(400).send("Book no found")
+    : res.status(200).send({ bookSchema });
+};
+
+export default { registerBook, listBook, updateBook, deleteBook, findBook };

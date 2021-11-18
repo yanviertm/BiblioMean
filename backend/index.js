@@ -5,6 +5,7 @@ import dotenv from "dotenv";
 import book from "./routes/book.js";
 import customer from "./routes/customer.js";
 import provider from "./routes/provider.js";
+import admin from "./routes/admin.js";
 dotenv.config();
 
 const app = express();
@@ -14,6 +15,7 @@ app.use(cors());
 app.use("/api/book",book);
 app.use("/api/customer",customer);
 app.use("/api/provider",provider);
+app.use("/api/admin", admin);
 
 app.listen(process.env.PORT, () => {
   console.log("Server Running on port " + process.env.PORT);
